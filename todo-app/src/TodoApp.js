@@ -1,18 +1,20 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import TodoList from './TodoList'
 
 export default class TodoApp extends React.Component{
     constructor(props) {
         super(props)
         this.state = { items: [], text: ''}
-        // this.handleChange = this.handleChange.bind(this)
-        // this.handleSubmit = this.handleSubmit.bind(this)
+        this.handleChange = this.handleChange.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this)
     }
 
     render(){
         return(
             <div>
                 <h3>Todo App</h3>
+                <TodoList items={this.state.items} />
                 <form onSubmit={this.handleSubmit}>
                     <label htmlFor="new-todo">
                         New task to do? 
